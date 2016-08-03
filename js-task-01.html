@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>控制 div 属性</title>
+<style>
+  #wrap {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #box {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border: 1px solid #ccc;
+  }
+  .notice {
+    width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+  }
+</style>
+</head>
+<body>
+    <div id="wrap">
+      <div id="box"></div>
+      <button type="button">变宽</button>
+      <button type="button">变高</button>
+      <button type="button">变黑</button>
+      <button type="button">变白</button>
+      <button type="button">隐藏</button>
+      <button type="button">重置</button>
+    </div>
+    <div class="notice">
+      <ol>
+        <li><code>element.style.cssText</code></li>
+        <li><code>element.style[attr]</code></li>
+      </ol>
+    </div>
+    <script>
+    function changeStyle(element, attr, value) {
+      element.style[attr] = value
+    }
+    var oBtn = document.getElementsByTagName('button');
+    var oDiv = document.getElementById('box');
+    var oAttr = ['width', 'height', 'background', 'background', 'display', 'display'];
+    var oVal = ['200px', '200px', 'black', 'white', 'none', 'block'];
+
+    for (var i = 0; i < oBtn.length; i++) {
+      oBtn[i].index = i;
+      oBtn[i].onclick = function () {
+        this.index == oBtn.length - 1 && (oDiv.style.cssText = '');
+        changeStyle(oDiv, oAttr[this.index], oVal[this.index])
+      }
+    }
+    </script>
+</body>
+</html>
