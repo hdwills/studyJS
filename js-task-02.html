@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>网页换肤</title>
+<link href="css/blue.css" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-size: 10px;
+  }
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: ' ';
+  }
+  .clearfix:after {
+    clear: both;
+  }
+  .container {
+    width: 60em;
+    margin: 0 auto 4em;
+  }
+  .navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .navbar li {
+    float: left;
+  }
+  .navbar li a {
+    color: #fff;
+    display: block;
+    height: 2.5em;
+    line-height: 2.5em;
+    padding: 0 1em;
+    text-decoration: none;
+    font-size: 2em;
+  }
+  .navbar li a:hover {
+  }
+  .box-4 {
+    width: 33.33%;
+    float: left;
+  }
+  .box-4 .text {
+    font-size: 1.6em;
+    margin: 0.625em;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding-top: 0.625em;
+  }
+  .skin-box {
+    text-align: center;
+    font-size: 1.6em;
+  }
+  .skin-btn {
+    font-size: 1em;
+    border-width: 0;
+    background-color: #ccc;
+    padding: .5em;
+    width: 5em;
+    color: #fff;
+    border-radius: .2em;
+    cursor: pointer;
+  }
+  .skin-btn-red {
+    background-color: #f44336;
+  }
+  .skin-btn-red:active {
+    background-color: #d32f2f;
+  }
+  .skin-btn-purple {
+    background-color: #9c27b0;
+  }
+  .skin-btn-purple:active {
+    background-color: #7b1fa2;
+  }
+  .skin-btn-blue {
+    background-color: #2196f3;
+  }
+  .skin-btn-blue:active {
+    background-color: #1976d2;
+  }
+  .skin-btn-orange {
+    background-color: #ff9800;
+  }
+  .skin-btn-orange:active {
+    background-color: #f57c00;
+  }
+  /*
+  red
+  #f44336 #d32f2f
+
+  purple
+  #9c27b0 #7b1fa2
+
+  blue
+  #2196f3 #1976d2
+
+  orange
+  #ff9800 #f57c00
+   */
+</style>
+</head>
+<body>
+    <div class="container">
+      <ul class="navbar clearfix">
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><a href="#">Link 3</a></li>
+        <li><a href="#">Link 4</a></li>
+      </ul>
+    </div>
+    <div class="container clearfix">
+      <div class="box-4">
+        <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta in quidem, animi provident cupiditate blanditiis ipsum? Aut asperiores alias repudiandae ea nihil voluptas magni culpa blanditiis illum excepturi. Expedita, minus.</div>
+      </div>
+      <div class="box-4">
+        <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta in quidem, animi provident cupiditate blanditiis ipsum? Aut asperiores alias repudiandae ea nihil voluptas magni culpa blanditiis illum excepturi. Expedita, minus.</div>
+      </div>
+      <div class="box-4">
+        <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta in quidem, animi provident cupiditate blanditiis ipsum? Aut asperiores alias repudiandae ea nihil voluptas magni culpa blanditiis illum excepturi. Expedita, minus.</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="skin-box" id="skinBox">
+        skin: 
+        <button id="red" type="button" class="skin-btn">Red</button>
+        <button id="purple" type="button" class="skin-btn">Purple</button>
+        <button id="blue" type="button" class="skin-btn skin-btn-blue">Blue</button>
+        <button id="orange" type="button" class="skin-btn">Orange</button>
+      </div>
+    </div>
+    <script>
+    var oLink = document.getElementsByTagName('link')[0];
+    var oSkin = document.getElementById('skinBox').getElementsByTagName('button');
+
+    for (var i = 0; i < oSkin.length; i++) {
+      oSkin[i].onclick = function () {
+        for (var p in oSkin)
+          oSkin[p].className = 'skin-btn';
+        this.className = 'skin-btn skin-btn-' + this.id;
+        oLink['href'] = 'css/' + this.id + '.css';
+      }
+    };
+    </script>
+</body>
+</html>

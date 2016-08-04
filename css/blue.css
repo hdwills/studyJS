@@ -1,0 +1,19 @@
+@charset "UTF-8";
+.navbar {
+  background-color: #2196f3;
+}
+.navbar li a {
+  background-color: #2196f3;
+}
+.navbar li a:hover {
+  background-color: #1976d2;
+}
+.box-4 .text {
+  border-top: 1px solid #2196f3;
+}
+.skin-btn {
+  background-color: #2196f3;
+}
+.skin-btn:active {
+  background-color: #1976d2;
+}
