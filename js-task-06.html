@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>鼠标触发样式 2</title>
+  <style>
+    #box {
+      width: 500px;
+      margin: 0 auto;
+    }
+    #box input[type='input'] {
+      width: 150px;
+    }
+    .form-group {
+      position: relative;
+    }
+    .tips {
+      background-color: #ffccbc;
+      border: 1px solid #ffab91;
+      padding: 5px;
+      position: relative;
+      visibility: hidden;
+    }
+    .tips:before {
+      position: absolute;
+      top: 8px;
+      left: -6px;
+      content: '';
+      display: block;
+      border-right: 5px solid #ffab91;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+    }
+    .tips:after {
+      position: absolute;
+      top: 8px;
+      left: -5px;
+      content: '';
+      display: block;
+      border-right: 5px solid #ffccbc;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <div class="form-group">
+      <label for="name">name:</label><br>
+      <input type="text" id="name" name="name">
+      <span class="tips">Name field is required.</span>
+    </div>
+    <div class="form-group">
+      <label for="password">password:</label><br>
+      <input type="password" name="name">
+      <span class="tips">Password field is required.</span>
+    </div>
+  </div>
+
+  <script>
+  var oInput = document.getElementsByTagName('input');
+  var oTips = document.getElementsByTagName('span');
+
+  for (var i = 0; i < oInput.length; i++) {
+    oInput[i].index = i;
+    oInput[i].onmouseover = function () {
+      oTips[this.index].style.visibility = 'visible';
+    }
+    oInput[i].onmouseout = function () {
+      oTips[this.index].style.visibility = 'hidden';
+    }
+  }
+  </script>
+</body>
+
+</html>
